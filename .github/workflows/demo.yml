@@ -1,0 +1,17 @@
+name: demoapp
+on:
+    workflow_dispatch:
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout code
+              uses: actions/checkout@v4
+            - name: setup required node version
+              uses: actions/setup-node@v3
+              with:
+                node-version: 20
+            - name: installing required packages
+              run: npm install
+            - name: running the application
+              run: npm start
