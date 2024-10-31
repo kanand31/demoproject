@@ -13,5 +13,10 @@ jobs:
                 node-version: 20
             - name: installing required packages
               run: npm install
-            - name: running the application
-              run: npm start
+            - name: Unit Testing
+              run: npm test
+            - name:
+              uses: sonarsource/sonarqube-scan-action@master
+              env:
+                SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+                SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
